@@ -42,7 +42,7 @@ cwd = os.getcwd()
 sources = glob.glob(os.path.join(loc, '*.c'))
 
 loc = 'pysnobal/c_snobal'
-extra_cc_args = ['-fopenmp', '-O3', '-L./pysnobal']
+extra_cc_args = ['-fopenmp', '-O3', '-L./pysnobal', '-ggdb3']
 sources += [os.path.join(loc, val) for val in ["snobal.pyx"]]
 extensions = [
     Extension(
