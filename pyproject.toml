@@ -1,0 +1,11 @@
+[project]
+name = "pysnobal"
+readme = "README.md"
+dynamic = ["dependencies","authors","urls","license","classifiers","keywords","description","version"]
+
+[build-system]
+requires = ["setuptools", "wheel", "cython","numpy","math.h"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
