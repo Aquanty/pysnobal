@@ -9,7 +9,7 @@ on:
     branches: ["*"]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -26,5 +26,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          python setup.py build
-          python setup.py install
+      - name: Install cibuildwheel
+        run: python -m pip install cibuildwheel==2.19.0
+      - name: Build linux package
+        run: |
+          export CIBW_BUILD='cp38-* cp310-*'
+          python -m cibuildwheel --platform=linux --archs=x86_64 --output-dir=dist
