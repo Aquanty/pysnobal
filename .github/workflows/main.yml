@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install build os glob sys numpy
+          pip install build numpy
       - name: Install cibuildwheel
         run: python -m pip install cibuildwheel==2.19.0
       - name: Build linux package
