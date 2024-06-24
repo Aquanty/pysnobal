@@ -89,5 +89,8 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6'
     ],
+    cmdclass={
+        'build_ext': build_ext
+    },
     ext_modules=extensions,
 )
