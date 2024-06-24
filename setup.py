@@ -71,7 +71,13 @@ setup(
     url='https://github.com/USDA-ARS-NWRC/pysnobal',
     packages=find_packages(exclude=["tests"]),
     include_package_data=True,
-    install_requires=requirements,
+    install_requires=[
+        "numpy",
+        "pandas",
+        "pytz",
+        "netCDF4",
+        "utm",
+    ],
     license="CC0 1.0",
     zip_safe=False,
     keywords='pysnobal',
@@ -83,10 +89,5 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6'
     ],
-    test_suite='tests',
-    tests_require=test_requirements,
-    cmdclass={
-        'build_ext': build_ext
-    },
     ext_modules=extensions,
 )
