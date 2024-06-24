@@ -1,12 +1,12 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
-# For information on uploading release asset, see: https://github.com/actions/upload-release-asset
+# For information on uploading release asset, see: https://github.com/softprops/action-gh-release
 
-name: Python application
+name: Release Linux
 
 on:
-  push:
-    branches: ["*"]
+  release:
+    types: [published]
+    branches:
+      - master
 
 permissions:
   contents: write
@@ -32,3 +32,9 @@ jobs:
         run: |
           export CIBW_BUILD='cp38-* cp310-*'
           python -m cibuildwheel --platform=linux --archs=x86_64 --output-dir=dist
+      - name: Publish to GitHub Releases
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*
+          tag_name: release
+          token: ${{ secrets.GITHUB_TOKEN }}
