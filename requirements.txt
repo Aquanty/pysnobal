@@ -1,6 +1,0 @@
-numpy
-pandas
-netcdf4
-pytz
-utm
-Cython==0.29.33
