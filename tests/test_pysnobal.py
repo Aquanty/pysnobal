@@ -21,7 +21,8 @@ class TestPysnobal(unittest.TestCase):
         pass
 
     def test_000_something(self):
-        self.assertTrue(hasattr(snobal, 'do_tstep_grid'))
+        self.assertTrue(hasattr(snobal, "do_tstep_grid"))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
