@@ -7,7 +7,6 @@ import numpy
 
 from setuptools import find_packages, setup, Extension
 
-from Cython.Distutils import build_ext
 
 # ------------------------------------------------------------------------------
 # Compiling the C code for the Snobal library

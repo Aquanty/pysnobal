@@ -12,7 +12,6 @@ snobal -z 2061 -t 60 -m 0.01 -s snow.properties.input
 from .c_snobal import snobal
 
 import sys
-import getopt
 import numpy as np
 import pandas as pd
 import progressbar

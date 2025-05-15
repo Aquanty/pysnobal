@@ -671,7 +671,7 @@ packages:
 - pypi: ./
   name: pysnobal
   version: 0.2.0
-  sha256: 52dcc5d579dc5ccea8419cec94eeb2d11b13fb19aadeeb4e5efce155963fb8b2
+  sha256: f0fa47cdb836dd82b68ae3a7a14f041427e468d8acac0d59bc46dfc4b9e5e2b0
   requires_dist:
   - numpy>=1,<3
   - pandas>=2.2.3,<3

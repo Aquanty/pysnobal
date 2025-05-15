@@ -13,7 +13,6 @@ from .c_snobal import snobal
 import os
 import configparser
 import sys
-import os
 import numpy as np
 import pandas as pd
 from datetime import timedelta
@@ -23,12 +22,7 @@ import netCDF4 as nc
 # import progressbar
 from copy import copy
 
-try:
-    from Queue import Queue, Empty, Full
-except:
-    from queue import Queue, Empty, Full
 import threading
-from time import time as _time
 import logging
 # from multiprocessing import Pool
 # from functools import partial
@@ -94,7 +88,7 @@ class MyParser(configparser.ConfigParser):
             for k, v in obj.iteritems():
                 ret[self._make_lowercase(k)] = v
             return ret
-        elif isinstance(obj, basestring):
+        elif isinstance(obj, str):
             # string
             return obj.lower()
         elif hasattr(obj, "__iter__"):
@@ -272,7 +266,7 @@ def get_args(configFile):
 
     try:
         config["output"]["nthreads"] = int(config["output"]["nthreads"])
-    except:
+    except ValueError:
         config["output"]["nthreads"] = None
 
     return config, point_run
@@ -417,7 +411,7 @@ def open_files(options):
     # soil temp can either be distributed for set to a constant
     try:
         force["soil_temp"] = nc.Dataset(options["inputs"]["soil_temp"], "r")
-    except:
+    except OSError:
         force["soil_temp"] = float(options["inputs"]["soil_temp"]) * np.ones_like(
             init["elevation"]
         )
