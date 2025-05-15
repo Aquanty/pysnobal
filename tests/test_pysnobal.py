@@ -10,11 +10,10 @@ Tests for `pysnobal` module.
 
 import unittest
 
-from pysnobal import pysnobal
+from pysnobal.c_snobal import snobal
 
 
 class TestPysnobal(unittest.TestCase):
-
     def setUp(self):
         pass
 
@@ -22,9 +21,8 @@ class TestPysnobal(unittest.TestCase):
         pass
 
     def test_000_something(self):
-        pass
+        self.assertTrue(hasattr(snobal, "do_tstep_grid"))
 
 
-if __name__ == '__main__':
-    import sys
-    sys.exit(unittest.main())
+if __name__ == "__main__":
+    unittest.main()
